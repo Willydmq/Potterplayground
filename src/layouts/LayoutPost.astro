@@ -1,0 +1,83 @@
+---
+import MenuItemContainerView from "../components/MenuItemContainerView.astro";
+import MenuItemView from "../components/MenuItemView.astro";
+import MenuItemsData from "../data/MenuItemsData";
+export interface Props {
+  title: string;
+}
+
+const { title, frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/harry-potter.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter?.title ?? title}</title>
+  </head>
+  <body>
+    <MenuItemContainerView>
+      {MenuItemsData.map((item) => <MenuItemView {...item} />)}
+    </MenuItemContainerView>
+    <div class="container">
+      <div class="logo">
+        <img src="/assets/hero-logo.webp" width="400px" alt="logo" />
+      </div>
+      <slot />
+    </div>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Crimson Text", serif;
+    background-color: #181e1e;
+  }
+  body {
+    font-family: "Crimson Text", serif;
+    background-image: url(/assets/bg.webp);
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+    color: white;
+    font-size: 18px;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  .container {
+    margin-top: 120px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .logo {
+    text-align: center;
+    position: relative;
+    top: -100px;
+    margin-bottom: -50px;
+  }
+
+  p img {
+    width: 100%;
+  }
+  .container a {
+    color: rgb(255, 179, 0);
+  }
+</style>

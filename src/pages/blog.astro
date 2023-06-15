@@ -1,0 +1,14 @@
+---
+import PostPreview from "../components/PostPreview.astro";
+import Title from "../components/Title.astro";
+import LayoutPost from "../layouts/LayoutPost.astro";
+
+const post = await Astro.glob("./posts/*.md");
+---
+
+<LayoutPost title="Blog">
+  <section>
+    <Title title="Ultimas noticias" />
+    {post.map((post) => <PostPreview post={post} />)}
+  </section>
+</LayoutPost>

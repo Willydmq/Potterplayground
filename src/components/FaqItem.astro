@@ -1,0 +1,26 @@
+---
+import type { Faq } from "../types/types";
+import Separator from "./Separator.astro";
+
+export interface Props {
+  item: Faq;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="faqitem">
+  <h3>{item.question}</h3>
+  <p>{item.response}</p>
+  <Separator />
+</div>
+
+<style>
+  h3 {
+    font-size: 34px;
+    color: rgb(223, 221, 186);
+  }
+  .faqitem {
+    text-align: center;
+  }
+</style>
