@@ -17,7 +17,7 @@
 
 <div style="display: flex; flex-direction: column; align-items: center;">
     <img src="/public/harry-potter.png" width="50px">
-    <a style="color: blue; font-size: 20px; display: block; text-align: center;" href="https://daee233c.potterplayground.pages.dev/" target="_blank">PotterPlayground</a>
+    <a style="color: blue; font-size: 20px; display: block; text-align: center;" href="https://potterplayground.pages.dev" target="_blank">PotterPlayground</a>
 </div>
 
 ## Instalación ⚙️
